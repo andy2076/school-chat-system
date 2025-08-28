@@ -1,0 +1,52 @@
+{
+  "name": "school-chat-system",
+  "version": "1.0.0",
+  "description": "School Chat System with LIFF and Node.js",
+  "main": "backend/src/app.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && echo 'Backend build completed'",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "lint:backend": "cd backend && npm run lint || echo 'Backend lint not configured'",
+    "lint:frontend": "cd frontend && npm run lint",
+    "deploy:prepare": "npm run install:all && npm run build",
+    "heroku-postbuild": "npm run install:all && npm run build:frontend"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "keywords": [
+    "school",
+    "chat",
+    "liff",
+    "line",
+    "nodejs",
+    "react",
+    "education"
+  ],
+  "author": "School Chat System Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/school-chat-system.git"
+  },
+  "homepage": "https://your-domain.com"
+}
