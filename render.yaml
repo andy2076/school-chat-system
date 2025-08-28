@@ -1,0 +1,29 @@
+services:
+  # バックエンドサービス
+  - type: web
+    name: school-chat-backend
+    env: node
+    plan: starter
+    rootDir: .
+    buildCommand: npm install && cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    healthCheckPath: /api/health
+    
+  # フロントエンド（静的サイト）
+  - type: web
+    name: school-chat-frontend  
+    env: static
+    rootDir: .
+    buildCommand: npm install && cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    
+databases:
+  # PostgreSQL データベース（必要に応じて）
+  - name: school-chat-db
+    databaseName: school_chat_system
+    user: chat_user
